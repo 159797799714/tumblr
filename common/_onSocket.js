@@ -5,7 +5,7 @@ import _action from './_action';
 import _page from "./common";
 import SDK from "./tendenceImSdk";
 // #ifdef APP-PLUS
-let call = uni.requireNativePlugin('TUICallingUniPlugin-TUICallingModule')
+let call = uni.requireNativePlugin('TencentCloud-TUICallKit')
 // #endif
 export default {
 	closeVoiceRoom() {
@@ -14,7 +14,7 @@ export default {
 	getVoiceRoom(params) {
 		let route = _page.getRoute();
 		if (route.indexOf('chat/message') > -1) {
-			_get.checkVoiceRoomState(params, function(ret) {
+			_get.checkVoiceRoomState(params, function (ret) {
 				//加入
 				uni.$emit('memberJoinRoom', ret)
 			})
@@ -358,7 +358,7 @@ export default {
 		uni.showModal({
 			title: show_name + ' 群聊已经被解散了!',
 			showCancel: false,
-			success: function(res) {
+			success: function (res) {
 				uni.switchTab({
 					url: '/pages/chat/index'
 				})
