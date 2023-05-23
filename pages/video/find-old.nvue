@@ -1,0 +1,129 @@
+<template>
+	<view class="find-container">
+		<view v-if="currentList.length > 0" class="main">
+			<swiper :current-item-id="currentId" :style="{height: wanlsys.windowHeight + 'px'}" circular acceleration
+				@change="changeCurrent" @animationfinish="animationFinish">
+				<!-- 滑动视频页 -->
+				<swiper-item item-id="video">
+					<wanl-find-play ref="videoPlay" :width="wanlsys.windowWidth" :height="wanlsys.windowHeight"
+						:bottom="wanlsys.windowBottom" />
+				</swiper-item>
+				<swiper-item item-id="find">
+					<wanl-find-list ref="findPlay" :width="wanlsys.windowWidth" :height="wanlsys.windowHeight"
+						:bottom="wanlsys.windowBottom" />
+				</swiper-item>
+			</swiper>
+		</view>
+		<wanl-find-header :currentItemId="currentId" :currentList="currentList" :height="wanlsys.headHeight"
+			:top="wanlsys.headTop" :width="wanlsys.windowWidth" @onChange="onChangeTab" />
+	</view>
+</template>
+
+<script>
+	import wanlFindHeader from './header';
+	import wanlFindPlay from './play';
+	import wanlFindList from './lists.vue';
+	export default {
+		components: {
+			wanlFindHeader,
+			wanlFindPlay,
+			wanlFindList
+		},
+		beforeCreate() {
+			// #ifdef APP-NVUE
+			var domModule = weex.requireModule('dom');
+			domModule.addRule('fontFace', {
+				'fontFamily': "iconfont",
+				'src': "url('/static/css/font/iconfont.ttf')"
+			});
+			// #endif
+		},
+		data() {
+			return {
+				wanlsys: {},
+				currentId: '',
+				currentList: [],
+			};
+		},
+		watch: {
+			currentId(newVal, oldVal) {
+				if (newVal === 'find') {
+					console.log("关注，视频停止")
+					this.$nextTick(() => {
+						this.$refs.videoPlay.handleVideoPause();
+					})
+				}
+				if (newVal === 'video') {
+					console.log("视频，关注停止")
+					this.$nextTick(() => {
+						this.$refs.findPlay.handleVideoPause();
+					})
+				}
+			}
+		},
+		onShow() {
+			if (this.currentId === 'video') {
+				uni.setTabBarStyle({
+					backgroundColor: '#161616',
+					borderStyle: 'black'
+				})
+			}
+		},
+		onHide() {
+			setTimeout(() => {
+				uni.setTabBarStyle({
+					backgroundColor: '#ffffff',
+					borderStyle: 'white'
+				})
+				this.$nextTick(() => {
+					this.$refs.findPlay.handleVideoPause();
+					this.$refs.videoPlay.handleVideoPause();
+				})
+			}, 50);
+		},
+		onShow() {
+			const sys = uni.getSystemInfoSync();
+			this.wanlsys = {
+				headTop: sys.statusBarHeight,
+				headHeight: sys.statusBarHeight + uni.upx2px(90),
+				windowWidth: sys.windowWidth,
+				windowHeight: sys.windowHeight,
+				windowBottom: 0
+			};
+			// #ifdef APP-NVUE
+			this.wanlsys.windowBottom = sys.windowBottom;
+			// #endif
+			this.loadData();
+		},
+		methods: {
+			async loadData() {
+				let client = '';
+				this.currentId = 'video';
+				this.currentList = [{
+						name: '发现',
+						type: 'video',
+					},
+					{
+						name: '关注',
+						type: 'find',
+					}
+				]
+			},
+			animationFinish(e) {
+				//#ifdef APP-PLUS
+				this.changeCurrent(e)
+				//#endif
+			},
+			changeCurrent(e) {
+				this.currentId = e.detail.currentItemId;
+			},
+			onChangeTab(e) {
+				this.currentId = e;
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	@import '@/static/css/common.css';
+</style>

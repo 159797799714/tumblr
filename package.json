@@ -1,0 +1,17 @@
+{
+    "id": "zs-marquee",
+    "displayName": "跑马灯标题",
+    "version": "1.0.4",
+    "description": "一个类似 marquee 跑马灯的效果",
+    "keywords": [
+        "跑马灯",
+        "滚动文字",
+        "marquee"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ]
+    }
+}

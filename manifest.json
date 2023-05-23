@@ -1,0 +1,295 @@
+{
+    "name" : "Tumblr",
+    "appid" : "__UNI__BB28C38",
+    "description" : "Tumblr",
+    "versionName" : "1.2.0",
+    "versionCode" : 120,
+    "transformPx" : false,
+    "networkTimeout" : {
+        "request" : 6000,
+        "connectSocket" : 10000,
+        "uploadFile" : 60000,
+        "downloadFile" : 6000
+    },
+    "app-plus" : {
+        /* 是否启用`自定义组件模式`，为true表示新的`自定义组件模式` ，否则为`template模板模式` */
+        "usingComponents" : true,
+        "compatible" : {
+            "ignoreVersion" : true //true表示忽略版本检查提示框，HBuilderX1.9.0及以上版本支持  
+        },
+        /* 5+App特有相关 */
+        "modules" : {
+            "Contacts" : {},
+            "Maps" : {},
+            "Messaging" : {},
+            "Payment" : {},
+            "Statistic" : {},
+            "Webview-x5" : {},
+            "Geolocation" : {},
+            "Speech" : {},
+            "VideoPlayer" : {},
+            "Share" : {},
+            "Camera" : {},
+            "Push" : {},
+            "Record" : {}
+        },
+        /* 模块配置 */
+        "distribute" : {
+            /* 应用发布信息 */
+            "android" : {
+                /* android打包配置 */
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ADD_VOICEMAIL\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_FINGERPRINT\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ],
+                "targetSdkVersion" : 28,
+                "minSdkVersion" : 21,
+                "schemes" : "xi0ksa1u5"
+            },
+            "ios" : {
+                "idfa" : false,
+                "urltypes" : "xi0ksa1u5",
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.associated-domains" : [
+                            "applinks:0ksa1u5.xinstall.top",
+                            "applinks:0ksa1u5.xinstall.net",
+                            "applinks:static-e19da9aa-83b5-466e-bf2a-8e460117cdf3.bspapp.com"
+                        ]
+                    }
+                },
+                "dSYMs" : false
+            },
+            /* ios打包配置 */
+            "sdkConfigs" : {
+                "speech" : {
+                    "ifly" : {}
+                },
+                "ad" : {},
+                "push" : {
+                    "unipush" : {}
+                },
+                "payment" : {
+                    "alipay" : {
+                        "__platform__" : [ "ios", "android" ]
+                    },
+                    "appleiap" : {}
+                },
+                "maps" : {
+                    "amap" : {
+                        "appkey_ios" : "fd43ec22e590b49d681b107c58365f6e",
+                        "appkey_android" : "94893efafc639762107936837aa1b628"
+                    }
+                },
+                "geolocation" : {
+                    "baidu" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appkey_ios" : "fd43ec22e590b49d681b107c58365f6e",
+                        "appkey_android" : "94893efafc639762107936837aa1b628"
+                    }
+                },
+                "share" : {
+                    "qq" : {
+                        "appid" : "546546546",
+                        "UniversalLinks" : "https://static-e19da9aa-83b5-466e-bf2a-8e460117cdf3.bspapp.com/qq_conn/546546546/"
+                    },
+                    "weixin" : {
+                        "appid" : "546546546",
+                        "UniversalLinks" : "https://static-e19da9aa-83b5-466e-bf2a-8e460117cdf3.bspapp.com/uni-universallinks/__UNI__A2E5AF1/"
+                    }
+                }
+            },
+            "icons" : {
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                },
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "ldpi" : "unpackage/res/icons/48x48.png",
+                    "mdpi" : "unpackage/res/icons/48x48.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                }
+            },
+            "splashscreen" : {
+                "ios" : {
+                    "iphone" : {
+                        "portrait-896h@3x" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "landscape-896h@3x" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "portrait-896h@2x" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "landscape-896h@2x" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "iphonex" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "iphonexl" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina55" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina55l" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina47" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina47l" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina40" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina40l" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                        "retina35" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png"
+                    },
+                    "ipad" : {
+                        "portrait-1366h@2x" : "",
+                        "landscape-1366h@2x" : "",
+                        "portrait-1194h@2" : "",
+                        "landscape-1194h@2x" : "",
+                        "portrait-1112h@2x" : "",
+                        "landscape-1112h@2x" : "",
+                        "portrait-retina7" : "",
+                        "landscape-retina7" : "",
+                        "portrait7" : "",
+                        "landscape7" : "",
+                        "portrait-1194h@2x" : ""
+                    },
+                    "storyboard" : "H:/chrome浏览器下载/APP启动图/默认启动图/CustomStoryboard.zip"
+                },
+                "android" : {
+                    "xxhdpi" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                    "hdpi" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png",
+                    "xhdpi" : "C:/Users/Administrator/Desktop/photo_2023-05-13_23-45-34.png"
+                },
+                "iosStyle" : "common",
+                "androidStyle" : "common",
+                "useOriginalMsgbox" : true
+            }
+        },
+        "nativePlugins" : {
+            "TUICallingUniPlugin-TUICallingModule" : {
+                "__plugin_info__" : {
+                    "name" : "TUICallingUniPlugin-TUICallingModule",
+                    "description" : "腾讯云音视频插件",
+                    "platforms" : "Android,iOS",
+                    "url" : "",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
+                    "parameters" : {}
+                }
+            }
+        },
+        // "xinstall-plugin" : {
+        //     "APP_KEY" : "",
+        //     "__plugin_info__" : {
+        //         "name" : "Xinstall-推广赋能专家",
+        //         "description" : "免填写邀请码渠道统计，用户来源追溯，一键拉起/闪装，携带参数安装，增加客户转化，清楚投放效果",
+        //         "platforms" : "Android,iOS",
+        //         "url" : "https://ext.dcloud.net.cn/plugin?id=3701",
+        //         "android_package_name" : "moliao.v1",
+        //         "ios_bundle_id" : "",
+        //         "isCloud" : true,
+        //         "bought" : 1,
+        //         "pid" : "3701",
+        //         "parameters" : {
+        //             "APP_KEY" : {
+        //                 "des" : "Xinstall管理后台分配的appkey",
+        //                 "key" : "com.xinstall.APP_KEY",
+        //                 "value" : ""
+        //             }
+        //         }
+        //     }
+        // }
+        "splashscreen" : {
+            "waiting" : true
+        }
+    },
+    /* SDK配置 */
+    "quickapp" : {},
+    /* 快应用特有相关 */
+    "mp-weixin" : {
+        /* 小程序特有相关 */
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : true
+        }
+    },
+    "h5" : {
+        "devServer" : {
+            "https" : false,
+            "useLocalIp" : true
+        },
+        "title" : "默聊",
+        "domain" : "https://m-im.smiaoshen.com",
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        }
+    },
+    "vueVersion" : "2",
+    "_qq_spaceID" : "e19da9aa-83b5-466e-bf2a-8e460117cdf3",
+    "_spaceID" : "e19da9aa-83b5-466e-bf2a-8e460117cdf3"
+}
+// "xinstall-plugin" : {
+//     "APP_KEY" : "",
+//     "__plugin_info__" : {
+//         "name" : "Xinstall-推广赋能专家",
+//         "description" : "免填写邀请码渠道统计，用户来源追溯，一键拉起/闪装，携带参数安装，增加客户转化，清楚投放效果",
+//         "platforms" : "Android,iOS",
+//         "url" : "https://ext.dcloud.net.cn/plugin?id=3701",
+//         "android_package_name" : "moliao.v1",
+//         "ios_bundle_id" : "",
+//         "isCloud" : true,
+//         "bought" : 1,
+//         "pid" : "3701",
+//         "parameters" : {
+//             "APP_KEY" : {
+//                 "des" : "Xinstall管理后台分配的appkey",
+//                 "key" : "com.xinstall.APP_KEY",
+//                 "value" : ""
+//             }
+//         }
+//     }
+// }
+/* SDK配置 */
+
