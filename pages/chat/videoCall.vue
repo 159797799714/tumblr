@@ -123,7 +123,7 @@ export default {
       _get.agreeVedio(_this.call_data, function () {
         _this.call.call(
           {
-            type: 1, //使用默认界面
+            callMediaType: 1, //使用默认界面
             ..._this.call_data
           }, ret => {
             if (ret.code == 1 && ret.time != undefined && !_this.ret) {
@@ -252,4 +252,5 @@ page {
 .page-user-info {
   display: flex;
 
-}</style>
+}
+</style>

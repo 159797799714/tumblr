@@ -202,7 +202,22 @@
                 "useOriginalMsgbox" : true
             }
         },
-        "nativePlugins" : {},
+        "nativePlugins" : {
+            "TencentCloud-TUICallKit" : {
+                "__plugin_info__" : {
+                    "name" : "【官方】腾讯云音视频通话插件TencentCloud-TUICallKit",
+                    "description" : "TUICallKit 是腾讯云官方推出的音视频通话插件，支持 1v1 通话和群组通话，并提供“类微信\"的 UI 交互，开发者仅需三个 API 就可实现。",
+                    "platforms" : "Android,iOS",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=9035",
+                    "android_package_name" : "uni.UNI0300EB5",
+                    "ios_bundle_id" : "com.wangluo.chuangyeke",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "9035",
+                    "parameters" : {}
+                }
+            }
+        },
         // "xinstall-plugin" : {
         //     "APP_KEY" : "",
         //     "__plugin_info__" : {

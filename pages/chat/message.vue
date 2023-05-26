@@ -419,8 +419,7 @@
 							</view>
 							<!--#ifndef H5-->
 							<view class="list-box" @tap="videoCall(1)" v-if="msgList.type == 0">
-								<image class="fun-icon" src="../../static/theme/default/video-call.png"
-									mode="heightFix">
+								<image class="fun-icon" src="../../static/theme/default/video-call.png" mode="heightFix">
 									<view class="tool_text">视频通话</view>
 							</view>
 							<view class="list-box" @tap="videoCall(2)" v-if="msgList.type == 0">
@@ -493,8 +492,8 @@
 				<!-- #endif -->
 
 				<view class="textbox">
-					<view class="voice-mode" :class="[isVoice ? '' : 'hidden', recording ? 'recording' : '']" @touchstart="voiceBegin"
-						@touchmove.stop.prevent="voiceIng" @touchend="voiceEnd" @touchcancel="voiceCancel">
+					<view class="voice-mode" :class="[isVoice ? '' : 'hidden', recording ? 'recording' : '']"
+						@touchstart="voiceBegin" @touchmove.stop.prevent="voiceIng" @touchend="voiceEnd" @touchcancel="voiceCancel">
 						{{ voiceTis }}
 					</view>
 					<view class="text-mode" :class="isVoice ? 'hidden' : ''">
@@ -1606,15 +1605,17 @@ export default {
 		getVideo(data) {
 			console.log("调用腾讯云data", data);
 			let _this = this;
-			_this.call.groupCall({
-				type: data.callType == 'voice' ? 1 : 2,
-				groupID: '',
-				userIDList: data.user_ids
+
+
+			_this.call.call({
+				callMediaType: data.callType == 'voice' ? 1 : 2,
+				userID: data.user_ids[0]
 			}, ret => {
 				this.doubleClick = false;
 				console.log(data)
 				console.log(ret)
 				console.log("9909090909090")
+
 				if (ret) {
 					_this.videPoup = false;
 					_this.voiceLoading = false;

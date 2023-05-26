@@ -438,8 +438,8 @@
 				<!-- #endif -->
 
 				<view class="textbox">
-					<view class="voice-mode" :class="[isVoice ? '' : 'hidden', recording ? 'recording' : '']" @touchstart="voiceBegin"
-						@touchmove.stop.prevent="voiceIng" @touchend="voiceEnd" @touchcancel="voiceCancel">
+					<view class="voice-mode" :class="[isVoice ? '' : 'hidden', recording ? 'recording' : '']"
+						@touchstart="voiceBegin" @touchmove.stop.prevent="voiceIng" @touchend="voiceEnd" @touchcancel="voiceCancel">
 						{{ voiceTis }}
 					</view>
 					<view class="text-mode" :class="isVoice ? 'hidden' : ''">
@@ -1384,7 +1384,7 @@ export default {
 			console.log("调用腾讯云data", data);
 			let _this = this;
 			_this.call.groupCall({
-				type: data.callType == 'voice' ? 1 : 2,
+				callMediaType: data.callType == 'voice' ? 1 : 2,
 				groupID: '',
 				userIDList: data.user_ids
 			}, ret => {
